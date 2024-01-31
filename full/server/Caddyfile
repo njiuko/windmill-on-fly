@@ -3,6 +3,6 @@
 }
 
 :80 {
-    reverse_proxy /ws/* http://xxx-windmill-lsp.flycast
+    reverse_proxy /ws/* http://njiuko-windmill-lsp.flycast
     reverse_proxy /* http://localhost:8000
 }

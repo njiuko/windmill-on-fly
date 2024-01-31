@@ -1,16 +1,23 @@
-# fly.toml app configuration file generated for xxx-windmill-server on 2023-08-02T18:03:41+08:00
+# fly.toml app configuration file generated for njiuko-windmill-server on 2024-01-16T10:54:25+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "xxx-windmill-server"
-primary_region = "sea"
+app = "njiuko-windmill-server"
+primary_region = "fra"
+
+[build]
 
 [env]
-  BASE_URL = "https://xxx-windmill-server.fly.dev/"
+  BASE_URL = "https://njiuko-windmill-server.fly.dev"
   NUM_WORKERS = "0"
   RUST_LOG = "info"
 
 [http_service]
   internal_port = 80
   force_https = true
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024

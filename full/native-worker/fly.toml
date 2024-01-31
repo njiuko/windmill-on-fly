@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for xxx-windmill-worker on 2023-08-02T21:33:35+08:00
+# fly.toml app configuration file generated for njiuko-windmill-native-worker on 2024-01-16T16:19:14+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "njiuko-windmill-worker"
+app = "njiuko-windmill-native-worker"
 primary_region = "fra"
 
 [build]
@@ -15,7 +15,14 @@ primary_region = "fra"
   KEEP_JOB_DIR = "false"
   NUM_WORKERS = "4"
   RUST_LOG = "info"
+  WORKER_GROUP = "native"
 
 [[mounts]]
   source = "worker_cache"
   destination = "/tmp/windmill/cache"
+  auto_extend_size_threshold = 0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024

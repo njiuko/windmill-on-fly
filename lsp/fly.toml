@@ -1,19 +1,25 @@
-# fly.toml app configuration file generated for xxx-windmill-lsp on 2023-08-02T17:16:55+08:00
+# fly.toml app configuration file generated for njiuko-windmill-lsp on 2024-01-15T16:40:27+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "xxx-windmill-lsp"
-primary_region = "sea"
+app = "njiuko-windmill-lsp"
+primary_region = "fra"
 
 [build]
-  image = "ghcr.io/windmill-labs/windmill-lsp:latest"
+  image = "ghcr.io/windmill-labs/windmill-lsp:1.257"
 
 [[mounts]]
   source = "lsp_cache"
   destination = "/root/.cache"
+  auto_extend_size_threshold = 0
 
 [http_service]
   internal_port = 3001
-  #auto_stop_machines = true
-  #auto_start_machines = true
+  auto_stop_machines = true
+  auto_start_machines = true
+
+[[vm]]
+  cpu_kind = "performance"
+  cpus = 2
+  memory_mb = 4096
