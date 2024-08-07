@@ -1,6 +1,6 @@
 FROM caddy:2-alpine AS caddy
 
-FROM ghcr.io/windmill-labs/windmill-ee:1.342
+FROM ghcr.io/windmill-labs/windmill-ee:1.376.0
 
 EXPOSE 80
 EXPOSE 8000
