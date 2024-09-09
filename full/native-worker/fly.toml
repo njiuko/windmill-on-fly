@@ -7,22 +7,22 @@ app = "njiuko-windmill-native-worker"
 primary_region = "fra"
 
 [build]
-  image = "ghcr.io/windmill-labs/windmill-ee:1.376.0"
+image = "ghcr.io/windmill-labs/windmill-ee:1.376.0"
 
 [env]
-  BASE_URL = "https://njiuko-windmill-server.fly.dev/"
-  DISABLE_SERVER = "true"
-  KEEP_JOB_DIR = "false"
-  NUM_WORKERS = "4"
-  RUST_LOG = "info"
-  WORKER_GROUP = "native"
+BASE_URL = "https://njiuko-windmill-server.fly.dev/"
+DISABLE_SERVER = "true"
+KEEP_JOB_DIR = "false"
+NUM_WORKERS = "1"
+RUST_LOG = "info"
+WORKER_GROUP = "native"
 
 [[mounts]]
-  source = "worker_cache"
-  destination = "/tmp/windmill/cache"
-  auto_extend_size_threshold = 0
+source = "worker_cache"
+destination = "/tmp/windmill/cache"
+auto_extend_size_threshold = 0
 
 [[vm]]
-  cpu_kind = "shared"
-  cpus = 1
-  memory_mb = 1024
+cpu_kind = "shared"
+cpus = 1
+memory_mb = 2048
